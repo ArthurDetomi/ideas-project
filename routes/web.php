@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,14 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Teste
-Route::get('/help', function () {
-    return view('welcome');
-});
-
-Route::get('/hello', function () {
-    return view('hello');
-});
-
 // APP
 Route::get('/', [DashboardController::class, 'index']);
 
@@ -30,6 +23,4 @@ Route::get('/feed', function () {
     return view('feed');
 });
 
-Route::get('/profile', function () {
-    return view('users.profile');
-});
+Route::get('/profile', [ProfileController::class, 'index']);
