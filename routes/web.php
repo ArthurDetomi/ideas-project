@@ -23,4 +23,6 @@ Route::get('/feed', function () {
     return view('feed');
 });
 
-Route::get('/profile', [ProfileController::class, 'index']);
+Route::get('/terms', function () {
+    return view('terms');
+});
