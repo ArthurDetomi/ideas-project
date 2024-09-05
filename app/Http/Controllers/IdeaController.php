@@ -15,6 +15,6 @@ class IdeaController extends Controller
             ]
         );
 
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')->with('success', 'Idea created successfully!');
     }
 }
