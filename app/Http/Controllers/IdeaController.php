@@ -34,7 +34,7 @@ class IdeaController extends Controller
 
         $idea->update($validated);
 
-        return redirect()->route('idea.show', $idea->id)->with('success', 'Idea updated successfully!');
+        return redirect()->route('ideas.show', $idea->id)->with('success', 'Idea updated successfully!');
     }
 
     public function store()
