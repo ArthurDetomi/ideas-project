@@ -15,7 +15,9 @@
                     @csrf
                     @method('delete')
                     @auth()
-                        <a class="mx-2" href="{{ route('ideas.edit', $idea->id) }}"> Edit </a>
+                        @can('idea.edit', $idea)
+                            <a class="mx-2" href="{{ route('ideas.edit', $idea->id) }}"> Edit </a>
+                        @endcan
                     @endauth
                     <a href="{{ route('ideas.show', $idea->id) }}"> View </a>
                     @auth()
