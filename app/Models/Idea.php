@@ -14,6 +14,10 @@ class Idea extends Model
         'comments.user:id,name,image'
     ];
 
+    protected $withCount = [
+        'likes'
+    ];
+
     protected $fillable = [
         'user_id',
         'content',
