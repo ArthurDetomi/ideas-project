@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Laravel\Prompts\Key;
 
 class UserController extends Controller
 {
@@ -24,6 +25,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        $this->authorize("update", $user);
+
         $editing = true;
 
         $ideas = $user->ideas()->paginate(5);
@@ -36,6 +39,8 @@ class UserController extends Controller
      */
     public function update(User $user)
     {
+        $this->authorize("update", $user);
+
         $validated = request()->validate(
             [
                 'name' => 'required|min:3|max:40',
